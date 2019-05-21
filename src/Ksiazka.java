@@ -1,23 +1,42 @@
 public class Ksiazka {
-    String tytul = "pan tadeusz";
-    String autor = "mickiewicz";
-    int iloscStron = 100;
-    int iloscPrzeczytanychStron = 0;
+    private String tytul;
+    private String autor;
+    private int ileStron;
+    private int ilePrzeczytanych = 10;
 
-
-    void coToZaKsiazka(){
-        System.out.println(tytul + " " + autor);
-
+    public Ksiazka(String tytul, String autor, int iloscStron, int ilePrzeczytanych) {
+        this.tytul = tytul;
+        this.autor = autor;
+        this.ileStron = iloscStron;
+        this.ilePrzeczytanych = ilePrzeczytanych;
     }
 
-    int czytaj(int ilePrzeczytal){
-        iloscPrzeczytanychStron += ilePrzeczytal;
-        return iloscPrzeczytanychStron;
+
+    void jakaKsiazka() {
+        System.out.println(this.tytul + " " + this.autor + ". Przeczytales " + this.ilePrzeczytanych + " stron");
     }
 
-    boolean czyPrzeczytana(int iloscStron, int iloscPrzeczytanychStron){
-        if (iloscStron > iloscPrzeczytanychStron) return false;
-        else return true;
+
+    boolean czyPrzeczytana() {
+        if ((ilePrzeczytanych == ileStron) || (ilePrzeczytanych > ileStron))
+            return true;
+        else
+            return false;
     }
 
+
+    String czytaj(int ileStron) {
+        if (czyPrzeczytana() == true)
+            return "Ksiazka przeczytana";
+        else if (ilePrzeczytanych + ileStron > this.ileStron) {
+            ilePrzeczytanych = this.ileStron;
+            return "Przeczytałeś cala ksiazke - " + this.ileStron + " stron.";
+        }
+
+        else
+        {
+            ilePrzeczytanych += ileStron;
+            return "Przeczytałeś " + ilePrzeczytanych + " stron.";
+        }
+    }
 }
