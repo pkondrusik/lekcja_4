@@ -4,13 +4,13 @@ public class Samochod {
     private int ilePaliwa;
     private int jakiPrzebieg;
     private double spalanie;
-    private double pojemnoscZbiornika;
+    private int pojemnoscZbiornika;
 
-    public Samochod (String markaAuta, String kolorAuta, int iloscPaliwa, int przebieg, double spalanie, int pojemnoscZbiornika) {
+    public Samochod (String markaAuta, String kolorAuta, int iloscPaliwa, int jakiPrzebieg, double spalanie, int pojemnoscZbiornika) {
         this.markaAuta = markaAuta;
         this.kolorAuta = kolorAuta;
         this.ilePaliwa = iloscPaliwa;
-        this.jakiPrzebieg = przebieg;
+        this.jakiPrzebieg = jakiPrzebieg;
         this.spalanie = spalanie / 100;
         this.pojemnoscZbiornika = pojemnoscZbiornika;
     }
